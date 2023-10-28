@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,html{
+    /* overflow-x: hidden; */
+    
+}
+p{
+    font-family: "Karla", sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Poppins', sans-serif;
+}
+a,button{
+    font-family: "Montserrat", sans-serif;
+}
+.link{
+    text-decoration: none;
+    color: inherit;
+}
