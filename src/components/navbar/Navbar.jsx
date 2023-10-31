@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 function Navbar() {
   const [active, setActive] = useState(false);
   const [userOption,setUserOption] = useState(false)
+  const {pathname} = useLocation()
   const isActive = ()=>{
     window.scrollY > 0 ? setActive(true) : setActive(false)
   }
@@ -21,7 +22,7 @@ function Navbar() {
   }
   return (
     <Nav>
-      <nav className={active ? "navbar active" : "navbar"}>
+      <nav className={(active || pathname !=="/") ? "navbar active" : "navbar"}>
         <div className="container">
           <div className="logo">
             <Link to="/" className="link">
@@ -65,7 +66,7 @@ function Navbar() {
                         <div className="userImg" onClick={()=>setUserOption(!userOption)}>
                             <img src="" alt="" />
                         </div>
-                       {userOption && <div className="options">
+                       {userOption && <div className="options" id="options" onClick={()=>setUserOption(false)}>
                            {
                             currentUser?.isSeller && (
                                 <>
@@ -86,7 +87,7 @@ function Navbar() {
           </div>
         </div>
        
-        {active && (
+        {(active || pathname !=="/") && (
             <>
              <hr />
               <div className="menu">
@@ -113,7 +114,7 @@ const Nav = styled.section`
   position: sticky;
   position: -webkit-sticky;
   top: 0; 
-   
+   z-index: 999;
   .navbar {
     width: 100%;
     background-color: #013914;
