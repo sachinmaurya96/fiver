@@ -162,8 +162,6 @@ function Home() {
       video{
         width: 100%;
       }
-      
-     
     }
   }
 
